@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/*
+  PrismLab brand tokens. Source of truth: "PrismLab Tight Hand" handoff.
+  Page theme is locked DARK to stay cohesive with the real dark-mode app
+  screenshots. Single accent = brand green. One radius scale.
+*/
+@theme {
+  --color-ink: #0e1512;
+  --color-surface-0: #0d1310; /* page background, slightly deeper than ink */
+  --color-surface-1: #131a16; /* raised panels */
+  --color-surface-2: #1b211e; /* elevated / cards (handoff surface-dark) */
+  --color-hairline: #253029;
+
+  --color-green: #15a35e; /* primary (light contexts) */
+  --color-green-on: #34d07f; /* brand green on dark surfaces */
+  --color-mint: #2dd48a;
+  --color-mint-soft: #8fe9be;
+  --color-green-deep: #0c6b3f;
+
+  --color-paper: #f5f6f2;
+  --color-text: #f4f6f3;
+  --color-text-dim: #9aa8a0;
+  --color-text-faint: #6b7772;
+
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+
+  --radius-card: 20px;
+}
+
+/* The hero accent word: elegant italic serif in brand green.
+   (--font-serif is provided by next/font via the Newsreader variable.) */
+.accent-serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-green-on);
+}
+
+/* Numbered feature label, e.g. FEATURE 01 . TRACK & BUDGET */
+.feature-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/*
+  Per-feature accent. Defaults to brand green; each feature section overrides
+  --accent so the page is not uniformly green. Interactive brand elements
+  (buttons, nav, hero) stay green regardless.
+*/
+.accent-text {
+  color: var(--accent);
+}
+.accent-fill {
+  background-color: var(--accent);
+}
+.accent-soft {
+  background-color: color-mix(in oklab, var(--accent) 12%, transparent);
+}
+.accent-soft-2 {
+  background-color: color-mix(in oklab, var(--accent) 6%, transparent);
+}
+.accent-ring {
+  border-color: color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+/* Rainbow-gradient word (used for "Intelligence"). */
+.rainbow-text {
+  background: linear-gradient(
+    90deg,
+    #34d07f 0%,
+    #38bdf8 34%,
+    #a78bfa 66%,
+    #f472b6 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-surface-0);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  --accent: var(--color-green-on);
+}
+
+/* Kicker / label style from the handoff (Space Mono, wide tracking) */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-green-on);
+}
+
+/* The PrismLab wordmark: Prism (text) + Lab (green), Sora Bold */
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.wordmark .accent {
+  color: var(--color-green-on);
+}
+
+/* Soft ambient green glow used behind hero + CTA. Not AI-purple; on-brand. */
+.aura {
+  background: radial-gradient(
+    60% 60% at 50% 0%,
+    color-mix(in oklab, var(--color-green) 26%, transparent) 0%,
+    transparent 70%
+  );
+}
+
+/* Faint dotted grid texture for section backdrops */
+.grid-texture {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--color-mint) 14%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 26px 26px;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-green) 40%, transparent);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
