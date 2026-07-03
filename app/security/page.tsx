@@ -90,8 +90,8 @@ export default function SecurityPage() {
         <LegalList
           items={[
             "Your data is kept for as long as your account is active.",
-            "You can export everything to PDF, CSV or Excel at any time.",
-            "You can delete your account, which removes your personal data from the active service.",
+            "You can export your records and reports to PDF, CSV or Excel at any time.",
+            "You can ask us to delete your account and remove your personal data from the active service.",
           ]}
         />
       </LegalSection>
@@ -100,12 +100,12 @@ export default function SecurityPage() {
         <p>
           No system is perfectly secure, and we do not pretend otherwise. If you
           believe you have found a vulnerability, please tell us at{" "}
-          <a className="text-green-on hover:underline" href="mailto:security@prismlab.app">
-            security@prismlab.app
+          <a className="text-green-on hover:underline" href="mailto:admin@prismlab.app">
+            admin@prismlab.app
           </a>{" "}
           and we will respond quickly. For general privacy questions, write to{" "}
-          <a className="text-green-on hover:underline" href="mailto:privacy@prismlab.app">
-            privacy@prismlab.app
+          <a className="text-green-on hover:underline" href="mailto:admin@prismlab.app">
+            admin@prismlab.app
           </a>
           .
         </p>

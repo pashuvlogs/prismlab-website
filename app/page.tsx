@@ -19,6 +19,7 @@ import {
   DeviceMobile,
   Database,
   Lock,
+  Plus,
 } from "@phosphor-icons/react";
 import { PrismLabMark } from "@/components/Logo";
 import { Nav } from "@/components/Nav";
@@ -41,7 +42,7 @@ const BTN_PRIMARY =
 const BTN_GHOST =
   "inline-flex items-center gap-2 rounded-full border border-hairline bg-surface-1/60 font-medium text-text transition-colors hover:bg-surface-2";
 
-const SIGNUP_URL = "https://dev.prismlab.app/signup";
+const REQUEST_ACCESS = "mailto:admin@prismlab.app?subject=Pilot%20access%20request";
 
 // Per-feature accent, so the page reads as a spectrum, not a wall of green.
 const A = {
@@ -101,8 +102,8 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.22 }}
           >
-            <a href={SIGNUP_URL} className={`${BTN_PRIMARY} px-6 py-3`}>
-              Start free trial
+            <a href={REQUEST_ACCESS} className={`${BTN_PRIMARY} px-6 py-3`}>
+              Request pilot access
               <ArrowRight size={17} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
             </a>
             <a href="#features" className={`${BTN_GHOST} px-6 py-3`}>
@@ -342,11 +343,11 @@ function FeatureFull({
 
 const MORE = [
   { icon: Globe, t: "Multi-currency accounts", d: "NZD, AED, USD and more, side by side." },
-  { icon: CurrencyDollarSimple, t: "Live exchange rates", d: "With a durable fallback when offline." },
+  { icon: CurrencyDollarSimple, t: "Live exchange rates", d: "With a durable fallback if a rate feed is down." },
   { icon: TrendUp, t: "Cash-flow forecast", d: "See where the year is heading." },
   { icon: ChartLineUp, t: "Spending analytics", d: "Trends and category comparisons." },
   { icon: UsersThree, t: "Share with permissions", d: "Invite a partner or adviser, safely." },
-  { icon: ArrowsClockwise, t: "Recurring transactions", d: "Rent, salary and bills, handled." },
+  { icon: ArrowsClockwise, t: "Account transfers", d: "Move money between accounts, counted once." },
   { icon: Receipt, t: "Document storage", d: "Receipts and policies kept on file." },
   { icon: DeviceMobile, t: "Installs like an app", d: "Add PrismLab to your home screen." },
 ];
@@ -465,7 +466,7 @@ function FireFinale() {
 
 const CONTROLS = [
   { icon: Database, t: "Isolated at the database", d: "Every table enforces row-level security. Your records are scoped to your account at the data layer, not just in the app." },
-  { icon: Lock, t: "Encrypted end to end", d: "Data is encrypted in transit with TLS and at rest in the database. Secrets never live in source code." },
+  { icon: Lock, t: "Encrypted in transit and at rest", d: "Traffic is encrypted with TLS, your data is encrypted at rest, and sensitive vault fields carry an extra layer of app-level encryption. Secrets never live in source code." },
   { icon: Sparkle, t: "AI that stays private", d: "Prism Intelligence processes your documents to serve you, and never trains models on your financial data." },
   { icon: UsersThree, t: "Sharing you control", d: "Grant a partner or adviser access to specific sections, as view-only or full edit, and revoke it any time." },
   { icon: LockKey, t: "Least-privilege access", d: "Access follows the principle of least privilege, with audit trails on sign-in and sensitive actions." },
@@ -555,8 +556,8 @@ function Pricing() {
                 14-day free trial . no card required
               </p>
 
-              <a href={SIGNUP_URL} className={`${BTN_PRIMARY} mt-7 w-full px-6 py-3.5`}>
-                Start free trial
+              <a href={REQUEST_ACCESS} className={`${BTN_PRIMARY} mt-7 w-full px-6 py-3.5`}>
+                Request pilot access
                 <ArrowRight size={17} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
               </a>
 
@@ -575,6 +576,67 @@ function Pricing() {
             </div>
           </div>
         </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================== FAQ */
+
+const FAQS = [
+  {
+    q: "Does PrismLab connect to my bank?",
+    a: "No, and that is deliberate. You import a statement (CSV, PDF or photo) or add entries yourself. There are no bank logins and no third party holding your credentials. It is a privacy choice as much as a design one.",
+  },
+  {
+    q: "Which currencies does it support?",
+    a: "Any of them. Hold accounts in NZD, AED, USD, INR or anything else, and PrismLab converts to your base currency for net worth, budgets and the FIRE projection, using live rates with a durable fallback.",
+  },
+  {
+    q: "Is there a mobile app?",
+    a: "PrismLab runs in any modern browser and installs to your home screen. A dedicated Android app is part of the launch; on iPhone, the web app covers everything today.",
+  },
+  {
+    q: "What can Prism Intelligence see?",
+    a: "Only what you send it: a statement, a receipt, or your figures for a summary. It is used to produce your result and never to train AI models, and every suggestion is something you review before it saves.",
+  },
+  {
+    q: "Where is my data stored?",
+    a: "In a managed, encrypted PostgreSQL database, isolated to your account with row-level security so no other user, and no one on our team, can casually browse it. See the Security page for the detail.",
+  },
+  {
+    q: "Can I cancel?",
+    a: "Any time. The 14-day trial needs no card, so you only pay if you decide to stay, and cancelling stops any future charge.",
+  },
+];
+
+function Faq() {
+  return (
+    <section id="faq" className="scroll-mt-20 px-5 py-24 md:px-8 md:py-28">
+      <div className="mx-auto max-w-[820px]">
+        <Reveal className="text-center">
+          <span className="kicker">FAQ</span>
+          <h2 className="mt-5 font-display text-3xl leading-tight font-bold tracking-tight text-text sm:text-5xl">
+            The questions worth asking.
+          </h2>
+        </Reveal>
+        <Stagger className="mt-12 flex flex-col gap-3">
+          {FAQS.map((f) => (
+            <StaggerItem key={f.q}>
+              <details className="group rounded-card border border-hairline bg-surface-1/60 px-6 py-5 transition-colors hover:border-green-on/30">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[17px] font-semibold text-text [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <Plus
+                    size={18}
+                    weight="bold"
+                    className="shrink-0 text-green-on transition-transform group-open:rotate-45"
+                  />
+                </summary>
+                <p className="mt-3 text-[15px] leading-relaxed text-text-dim">{f.a}</p>
+              </details>
+            </StaggerItem>
+          ))}
+        </Stagger>
       </div>
     </section>
   );
@@ -599,8 +661,8 @@ function FinalCta() {
             Three minutes to set up. A lifetime of clarity to follow. No card required.
           </p>
           <div className="mt-9 flex justify-center">
-            <a href={SIGNUP_URL} className={`${BTN_PRIMARY} px-8 py-4 text-lg`}>
-              Start free trial
+            <a href={REQUEST_ACCESS} className={`${BTN_PRIMARY} px-8 py-4 text-lg`}>
+              Request pilot access
               <ArrowRight size={19} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
@@ -628,9 +690,11 @@ function Footer() {
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-text-dim">
           <a href="#features" className="hover:text-text">Features</a>
           <a href="#pricing" className="hover:text-text">Pricing</a>
+          <a href="#faq" className="hover:text-text">FAQ</a>
           <a href="/security" className="hover:text-text">Security</a>
           <a href="/privacy" className="hover:text-text">Privacy</a>
           <a href="/terms" className="hover:text-text">Terms</a>
+          <a href="mailto:admin@prismlab.app" className="hover:text-text">Contact</a>
         </div>
         <div className="font-mono text-[12px] text-text-faint">© 2026 PrismLab</div>
       </div>
@@ -678,7 +742,7 @@ export default function Page() {
         body="Speak a transaction the way you would tell a friend. Prism Intelligence catches the amount, merchant, category and date, and drops it in the right place."
         points={[
           "Say it out loud, or type if you prefer",
-          "Learns your merchants and habits over time",
+          "Understands plain, natural phrasing",
           "Review and tweak before it saves",
         ]}
         media={<QuickEntryCard />}
@@ -730,6 +794,7 @@ export default function Page() {
           "Cleaned merchants and smart categories",
           "Duplicate and transfer detection",
           "Balance reconciliation before anything is saved",
+          "No bank logins — you bring the data in, by design",
         ]}
         media={<ReconcileGraphic />}
         accent={A.green}
@@ -772,6 +837,7 @@ export default function Page() {
       <FireFinale />
       <Security />
       <Pricing />
+      <Faq />
       <FinalCta />
       <Footer />
     </main>

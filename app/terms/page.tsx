@@ -71,8 +71,8 @@ export default function TermsPage() {
       <LegalSection title="Contact">
         <p>
           Questions about these terms? Write to{" "}
-          <a className="text-green-on hover:underline" href="mailto:hello@prismlab.app">
-            hello@prismlab.app
+          <a className="text-green-on hover:underline" href="mailto:admin@prismlab.app">
+            admin@prismlab.app
           </a>
           .
         </p>

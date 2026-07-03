@@ -44,9 +44,9 @@ export default function PrivacyPage() {
       <LegalSection title="Your controls">
         <LegalList
           items={[
-            "Export: download your data as PDF, CSV or Excel at any time.",
+            "Export: download your records and reports as PDF, CSV or Excel at any time.",
             "Correct: edit or delete any record you have added.",
-            "Delete: close your account and have your personal data removed from the active service.",
+            "Delete: contact us to close your account and remove your personal data from the active service.",
           ]}
         />
       </LegalSection>
@@ -61,8 +61,8 @@ export default function PrivacyPage() {
       <LegalSection title="Contact">
         <p>
           Questions about your data? Write to{" "}
-          <a className="text-green-on hover:underline" href="mailto:privacy@prismlab.app">
-            privacy@prismlab.app
+          <a className="text-green-on hover:underline" href="mailto:admin@prismlab.app">
+            admin@prismlab.app
           </a>
           .
         </p>
