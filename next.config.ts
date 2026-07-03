@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import path from "node:path";
+import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   // Pin the workspace root to this project (a stray lockfile in the parent dir
@@ -47,4 +48,14 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Sentry error monitoring. tunnelRoute keeps events same-origin so they satisfy
+// the site's `connect-src 'self'` CSP and dodge ad-blockers. Source-map upload
+// only runs when SENTRY_AUTH_TOKEN + org/project are set.
+export default withSentryConfig(nextConfig, {
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  tunnelRoute: "/monitoring",
+});
