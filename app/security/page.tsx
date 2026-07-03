@@ -42,7 +42,22 @@ export default function SecurityPage() {
           items={[
             "In transit: all traffic is served over HTTPS with TLS.",
             "At rest: your data is stored in an encrypted, managed PostgreSQL database.",
+            "Extra protection for your vault: the most sensitive Family Vault fields are additionally encrypted at the application layer (AES-256) before they reach the database.",
             "Secrets such as API keys and tokens are stored as protected environment secrets and never committed to source code.",
+          ]}
+        />
+      </LegalSection>
+
+      <LegalSection title="Application hardening">
+        <p>
+          Beyond isolating your data, we harden the app itself against common web
+          attacks:
+        </p>
+        <LegalList
+          items={[
+            "A strict content-security policy limits what can run on the page, reducing the impact of injected or third-party scripts.",
+            "HTTPS is enforced (HSTS), and the app cannot be embedded in a hidden frame — protecting against clickjacking.",
+            "Browsers are told not to guess file types, and uploads are validated by their actual file signature, not just their name.",
           ]}
         />
       </LegalSection>
