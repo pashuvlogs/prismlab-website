@@ -74,26 +74,40 @@ export default function SecurityPage() {
 
       <LegalSection title="Infrastructure and sub-processors">
         <p>
-          We rely on a small set of reputable providers to run the service. Each
-          one processes data only as needed to deliver PrismLab to you:
+          We rely on a small set of reputable providers to run the service, each bound by a
+          data-processing agreement and using your data only as needed to deliver PrismLab:
         </p>
         <LegalList
           items={[
-            "A managed database, authentication and file-storage provider, for your records and documents.",
-            "An application hosting and edge-network provider, which serves the app and helps mitigate abuse.",
-            "An AI provider, the engine behind Prism Intelligence, used only to generate your results.",
+            "Supabase — managed database, authentication and file storage (Singapore).",
+            "Vercel — application hosting and global edge network (United States and edge locations).",
+            "Anthropic — the AI engine behind Prism Intelligence (United States).",
+            "Cloudflare — DNS and email routing.",
+            "Resend — transactional email.",
+            "Our payment provider — subscription billing.",
           ]}
         />
+        <p>
+          Running the service means your data is processed in Singapore and the United
+          States, and may pass through global edge locations. Where data crosses borders,
+          we rely on our providers&apos; contractual safeguards.
+        </p>
       </LegalSection>
 
       <LegalSection title="Data retention and your rights">
         <LegalList
           items={[
-            "Your data is kept for as long as your account is active.",
+            "Active-account data is kept while your account is open; after you close it, personal data is deleted within about 30 days, except records we must keep by law.",
+            "Billing and tax records are retained for up to 7 years; backups roll over within about 30 days; technical logs within about 90 days.",
             "You can export your records and reports to PDF, CSV or Excel at any time.",
-            "You can ask us to delete your account and remove your personal data from the active service.",
+            "You can ask us to access, correct or delete your account and personal data.",
           ]}
         />
+        <p>
+          The full detail — sub-processors, cross-border transfers, your rights by country
+          and how we handle a data breach — is in our{" "}
+          <a className="text-green-on hover:underline" href="/privacy">Privacy policy</a>.
+        </p>
       </LegalSection>
 
       <LegalSection title="Responsible disclosure">

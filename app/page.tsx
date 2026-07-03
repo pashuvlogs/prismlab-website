@@ -457,6 +457,10 @@ function FireFinale() {
             </StaggerItem>
           ))}
         </Stagger>
+
+        <p className="mx-auto mt-10 max-w-[54ch] text-center text-[13px] leading-relaxed text-text-faint">
+          Projections are estimates based on the numbers and assumptions you provide. PrismLab is a personal-finance tool, not a financial adviser, and this is not financial, tax or investment advice.
+        </p>
       </div>
     </section>
   );
@@ -698,6 +702,9 @@ function Footer() {
         </div>
         <div className="font-mono text-[12px] text-text-faint">© 2026 PrismLab</div>
       </div>
+      <p className="mx-auto mt-8 max-w-[760px] text-center font-mono text-[11px] leading-relaxed text-text-faint">
+        PrismLab is a personal-finance tool, not a financial adviser or a bank. It does not provide financial, tax, legal or investment advice.
+      </p>
     </footer>
   );
 }
