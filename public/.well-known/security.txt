@@ -1,0 +1,4 @@
+Contact: mailto:admin@prismlab.app
+Expires: 2027-07-05T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://prismlab.app/.well-known/security.txt
