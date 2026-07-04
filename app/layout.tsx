@@ -46,6 +46,9 @@ export const metadata: Metadata = {
     "statement import",
     "expat finance",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "PrismLab: Money, in focus",
     description:
@@ -53,6 +56,12 @@ export const metadata: Metadata = {
     url: "https://prismlab.app",
     siteName: "PrismLab",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PrismLab: Money, in focus",
+    description:
+      "Every account, every currency, and a real FIRE plan, in one clear picture of when you can stop working.",
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],

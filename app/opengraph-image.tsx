@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 // Static, on-brand social preview (WhatsApp/Twitter/LinkedIn link unfurls).
 export const alt = "PrismLab: Money, in focus";
@@ -10,14 +12,10 @@ export const contentType = "image/png";
 const MARK = `<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 120 120" fill="none"><g transform="translate(60 88)"><g transform="rotate(-34)"><rect x="-16" y="-52" width="32" height="50" rx="7" fill="#0E7A46"/></g><g transform="rotate(-17)"><rect x="-16" y="-52" width="32" height="50" rx="7" fill="#149E5D"/></g><g><rect x="-16" y="-52" width="32" height="50" rx="7" fill="#2DD48A"/></g><g transform="rotate(17)"><rect x="-16" y="-52" width="32" height="50" rx="7" fill="#6FE3AE"/></g><g transform="rotate(34)"><rect x="-16" y="-52" width="32" height="50" rx="7" fill="#B7F2D4"/></g></g></svg>`;
 const MARK_URI = `data:image/svg+xml;base64,${Buffer.from(MARK).toString("base64")}`;
 
-async function loadSora(weight: number): Promise<ArrayBuffer> {
-  // No modern User-Agent → Google serves a Satori-compatible TTF (not woff2).
-  const css = await (
-    await fetch(`https://fonts.googleapis.com/css2?family=Sora:wght@${weight}`)
-  ).text();
-  const url = css.match(/src:\s*url\((https:\/\/[^)]+)\)/)?.[1];
-  if (!url) throw new Error("Sora font URL not found");
-  return (await fetch(url)).arrayBuffer();
+// Fonts are vendored in app/ (Satori-compatible TTFs) and read from disk at
+// build time, so the OG image has no network dependency on Google Fonts.
+async function loadSora(weight: 400 | 700): Promise<Buffer> {
+  return readFile(join(process.cwd(), "app", `Sora-${weight}.ttf`));
 }
 
 export default async function OpengraphImage() {

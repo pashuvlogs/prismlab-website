@@ -103,11 +103,11 @@ function Hero() {
             transition={{ duration: 0.6, ease: EASE, delay: 0.22 }}
           >
             <a href={REQUEST_ACCESS} className={`${BTN_PRIMARY} px-6 py-3`}>
-              Request pilot access
+              Request Pilot Access
               <ArrowRight size={17} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
             </a>
             <a href="#features" className={`${BTN_GHOST} px-6 py-3`}>
-              See how it works
+              See How It Works
             </a>
           </motion.div>
 
@@ -132,7 +132,7 @@ function Hero() {
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
             >
               <BrowserFrame
-                src="/shots/01-dashboard.png"
+                src="/shots/01-dashboard.webp"
                 url="www.prismlab.app/dashboard"
                 alt="PrismLab dashboard with multi-currency balances, income, expenses, savings rate and a cash forecast"
                 eager
@@ -149,10 +149,10 @@ function Hero() {
 /* ========================================================== TRUST STRIP */
 
 const PRINCIPLES = [
-  { icon: Globe, label: "Multi-currency by design" },
+  { icon: Globe, label: "Multi-Currency by Design" },
   { icon: Sparkle, label: "Powered by Prism Intelligence" },
-  { icon: ShieldCheck, label: "Private by default" },
-  { icon: Wallet, label: "Accounts, assets and goals" },
+  { icon: ShieldCheck, label: "Private by Default" },
+  { icon: Wallet, label: "Accounts, Assets and Goals" },
 ];
 
 function TrustStrip() {
@@ -226,7 +226,7 @@ function FeaturesIntro() {
 function FeatureLabel({ n, name }: { n: string; name: string }) {
   return (
     <div className="feature-label">
-      Feature {n} <span className="text-text-faint">.</span> {name}
+      Feature {n} <span className="text-text-faint">·</span> {name}
     </div>
   );
 }
@@ -342,14 +342,14 @@ function FeatureFull({
 /* ============================================== FINAL FEATURES LIST */
 
 const MORE = [
-  { icon: Globe, t: "Multi-currency accounts", d: "NZD, AED, USD and more, side by side." },
-  { icon: CurrencyDollarSimple, t: "Live exchange rates", d: "With a durable fallback if a rate feed is down." },
-  { icon: TrendUp, t: "Cash-flow forecast", d: "See where the year is heading." },
-  { icon: ChartLineUp, t: "Spending analytics", d: "Trends and category comparisons." },
-  { icon: UsersThree, t: "Share with permissions", d: "Invite a partner or adviser, safely." },
-  { icon: ArrowsClockwise, t: "Account transfers", d: "Move money between accounts, counted once." },
-  { icon: Receipt, t: "Document storage", d: "Receipts and policies kept on file." },
-  { icon: DeviceMobile, t: "Installs like an app", d: "Add PrismLab to your home screen." },
+  { icon: Globe, t: "Multi-Currency Accounts", d: "NZD, AED, USD and more, side by side." },
+  { icon: CurrencyDollarSimple, t: "Live Exchange Rates", d: "With a durable fallback if a rate feed is down." },
+  { icon: TrendUp, t: "Cash-Flow Forecast", d: "See where the year is heading." },
+  { icon: ChartLineUp, t: "Spending Analytics", d: "Trends and category comparisons." },
+  { icon: UsersThree, t: "Share with Permissions", d: "Invite a partner or adviser, safely." },
+  { icon: ArrowsClockwise, t: "Account Transfers", d: "Move money between accounts, counted once." },
+  { icon: Receipt, t: "Document Storage", d: "Receipts and policies kept on file." },
+  { icon: DeviceMobile, t: "Installs Like an App", d: "Add PrismLab to your home screen." },
 ];
 
 function MoreFeatures() {
@@ -396,7 +396,7 @@ function Platform() {
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-8">
               <BrowserFrame
-                src="/shots/01-dashboard.png"
+                src="/shots/01-dashboard.webp"
                 url="www.prismlab.app/dashboard"
                 alt="PrismLab on the web"
                 crop="none"
@@ -406,7 +406,7 @@ function Platform() {
               </p>
             </div>
             <div className="lg:col-span-4">
-              <PhoneFrame src="/shots/mobile-analytics.png" alt="PrismLab on Android" />
+              <PhoneFrame src="/shots/mobile-analytics.webp" alt="PrismLab on Android" />
               <p className="mt-4 text-center font-mono text-[11px] tracking-wider text-text-faint uppercase">
                 On Android
               </p>
@@ -509,7 +509,7 @@ function Security() {
             href="/security"
             className="mt-12 inline-flex items-center gap-2 rounded-full border border-hairline bg-surface-0 px-5 py-2.5 text-sm font-medium text-text transition-colors hover:border-green-on/40 hover:text-green-on"
           >
-            Read the full security policy
+            Read the Full Security Policy
             <ArrowRight size={15} weight="bold" />
           </a>
         </Reveal>
@@ -557,11 +557,11 @@ function Pricing() {
                 <span className="mb-2 text-text-dim">/ month</span>
               </div>
               <p className="mt-2 font-mono text-[13px] text-green-on">
-                14-day free trial . no card required
+                14-day free trial · no card required
               </p>
 
               <a href={REQUEST_ACCESS} className={`${BTN_PRIMARY} mt-7 w-full px-6 py-3.5`}>
-                Request pilot access
+                Request Pilot Access
                 <ArrowRight size={17} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
               </a>
 
@@ -662,11 +662,11 @@ function FinalCta() {
             Try Prism <span className="accent-serif">free</span>.
           </h2>
           <p className="mx-auto mt-6 max-w-[42ch] text-lg text-text-dim">
-            Three minutes to set up. A lifetime of clarity to follow. No card required.
+            Three minutes to set up. Every account and currency in one view. No card required.
           </p>
           <div className="mt-9 flex justify-center">
             <a href={REQUEST_ACCESS} className={`${BTN_PRIMARY} px-8 py-4 text-lg`}>
-              Request pilot access
+              Request Pilot Access
               <ArrowRight size={19} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
@@ -732,7 +732,7 @@ export default function Page() {
         ]}
         media={
           <BrowserFrame
-            src="/shots/09-budget.jpeg"
+            src="/shots/09-budget.webp"
             url="www.prismlab.app/budget"
             alt="Budget versus actual grid across every category and month"
             crop="none"
@@ -829,7 +829,7 @@ export default function Page() {
         ]}
         media={
           <BrowserFrame
-            src="/shots/15-reports.jpeg"
+            src="/shots/15-reports.webp"
             url="www.prismlab.app/reports"
             alt="A PrismLab income statement ready to export"
             crop="none"

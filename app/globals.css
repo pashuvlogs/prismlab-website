@@ -21,7 +21,7 @@
   --color-paper: #f5f6f2;
   --color-text: #f4f6f3;
   --color-text-dim: #9aa8a0;
-  --color-text-faint: #6b7772;
+  --color-text-faint: #7d8a84; /* AA-safe on surface-0 at small sizes (~4.5:1) */
 
   --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;

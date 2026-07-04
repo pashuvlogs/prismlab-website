@@ -16,10 +16,11 @@ const nextConfig: NextConfig = {
     // Static marketing site: no Supabase, no auth, no camera. Tighter CSP than
     // the app — fonts self-hosted via next/font, images are local. Kept
     // script/style 'unsafe-inline' (Next hydration + Motion inline styles);
-    // nonce-based CSP would be the A+ upgrade.
+    // 'unsafe-eval' dropped — the production bundle needs no eval (nonce-based
+    // CSP would be the remaining A+ upgrade).
     const csp = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+      "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob:",
       "font-src 'self' data:",

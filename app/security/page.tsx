@@ -132,11 +132,7 @@ export default function SecurityPage() {
           <a className="text-green-on hover:underline" href="mailto:admin@prismlab.app">
             admin@prismlab.app
           </a>{" "}
-          and we will respond quickly. For general privacy questions, write to{" "}
-          <a className="text-green-on hover:underline" href="mailto:admin@prismlab.app">
-            admin@prismlab.app
-          </a>
-          .
+          and we will respond quickly. General privacy questions can go to the same address.
         </p>
         <p className="text-text-faint">
           This page describes our current practices and will evolve as PrismLab
