@@ -40,7 +40,7 @@ export function Nav() {
 
         <div className="hidden md:block">
           <a
-            href="mailto:admin@prismlab.app?subject=Pilot%20access%20request"
+            href="https://app.prismlab.app/signup"
             className="group inline-flex items-center gap-1.5 rounded-full bg-green-on px-4 py-2 text-sm font-semibold text-ink transition-transform hover:-translate-y-[1px]"
           >
             Request Pilot Access
@@ -79,7 +79,7 @@ export function Nav() {
               </a>
             ))}
             <a
-              href="mailto:admin@prismlab.app?subject=Pilot%20access%20request"
+              href="https://app.prismlab.app/signup"
               onClick={() => setOpen(false)}
               className="mt-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-green-on px-4 py-3 font-semibold text-ink"
             >

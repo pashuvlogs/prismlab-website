@@ -42,7 +42,9 @@ const BTN_PRIMARY =
 const BTN_GHOST =
   "inline-flex items-center gap-2 rounded-full border border-hairline bg-surface-1/60 font-medium text-text transition-colors hover:bg-surface-2";
 
-const REQUEST_ACCESS = "mailto:admin@prismlab.app?subject=Pilot%20access%20request";
+// Sends visitors to the app's signup (code-gated); people without an invite
+// code get a request-access email link on that page.
+const REQUEST_ACCESS = "https://app.prismlab.app/signup";
 
 // Per-feature accent, so the page reads as a spectrum, not a wall of green.
 const A = {
